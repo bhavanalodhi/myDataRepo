@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>carniwal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/lib/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/lib/sb-admin-2.css" rel="stylesheet">
+
+    <link href="../css/index.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../css/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.co/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+        /* Absolute Center Spinner */
+        .loading {
+          position: fixed;
+          z-index: 999;
+          height: 2em;
+          width: 2em;
+          overflow: show;
+          margin: auto;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+
+        /* Transparent Overlay */
+        .loading:before {
+          content: '';
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba();(0,0,0,0.3);
+        }
+
+        /* :not(:required) hides these rules from IE9 and below */
+        .loading:not(:required) {
+          /* hide "loading..." text */
+          font: 0/0 a;
+          color: transparent;
+          text-shadow: none;
+          background-color: transparent;
+          border: 0;
+        }
+
+        .loading:not(:required):after {
+          content: '';
+          display: block;
+          font-size: 10px;
+          width: 1em;
+          height: 1em;
+          margin-top: -0.5em;
+          -webkit-animation: spinner 1500ms infinite linear;
+          -moz-animation: spinner 1500ms infinite linear;
+          -ms-animation: spinner 1500ms infinite linear;
+          -o-animation: spinner 1500ms infinite linear;
+          animation: spinner 1500ms infinite linear;
+          border-radius: 0.5em;
+          -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+          box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+        }
+
+        /* Animation */
+
+        @-webkit-keyframes spinner {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+        @-moz-keyframes spinner {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+        @-o-keyframes spinner {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes spinner {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+    </style>
+
+</head>
+
+<body ng-app="xiLodgingUI" >
+
+    <div id="wrapper" ng-controller="MyController">
+
+        <div class="loading" ng-show="loader">Loading&#8230;</div>
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="../images/carnival_hawaii1.jpg" height="123" width="235"></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div ng-include="'sideMenuBar.html'"></div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> Disembarkation Manager </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Manage Groups
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form" ng-submit="getAllGroups()">
+                                        <div class="form-group col-lg-2">
+                                            <label>Ship Code</label>
+                                            <input ng-model="disembarkation.shipCode" placeholder="Enter Ship Code"  class="form-control" required="true" >         
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Port Location</label>
+                                            <input ng-model="disembarkation.portLocation" placeholder="Enter Port Location"  class="form-control" required="true">
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Arrival Date</label>
+                                            <input placeholder="Enter Arrival Date" ng-model="disembarkation.arrivalDate" class="form-control" required="true">
+                                        </div>
+                                        <div class="form-group col-lg-4" style="padding-top:1.7%;">
+                                            <button class="btn btn-primary">Show Created groups</button>
+                                            <a class="btn btn-primary" ng-click="getGroupsToCreate()">Create New Groups</a>    
+                                        </div>
+                                    </form> 
+                                    
+                                <!-- /.col-lg-6 (nested) -->
+                                </div>
+                            </div>
+                        </div>        
+                        <div class="panel-body">0
+                            <div class="row">
+                                <div class="col-lg-12" ng-show="groupsData">
+                                    <table width="100%"  ng-show="createGroupData" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                              <!--  <th>Template Name</th>-->
+                                                <th>Tag Color</th>
+												<th>Groups</th>
+												<th>Number of Pax</th>                                               
+											   <th>Meeting Location</th>
+											   <th>Meeting Time</th>
+											   <th>Guest UIID</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd gradeX" ng-repeat="disembarkationGroup in data2">
+                                                <form ng-submit="createGroup()" id="disembarkationGroup.groupId" name="disembarkationGroup.groupId">
+                                                    <!--<td> <input placeholder="Enter Template Name" ng-model="disembarkationGroup.templateName" class="form-control">
+                                                    </td>-->
+													<td><input placeholder="Enter Tag Color" ng-model="disembarkationGroup.tagColor"   class="form-control"></td>                                                   
+												   <td><input placeholder="Enter Group Name" ng-model="disembarkationGroup.groupName"   class="form-control"></td>
+                                                   <td><input type="number" placeholder="Enter Tag Capacity" ng-model="disembarkationGroup.tagCapacity"  class="form-control"></td>                                                   
+												   <td><input placeholder="Enter Meeting Location" ng-model="disembarkationGroup.meetingLocation" class="form-control"></td>
+												   <td><input placeholder="Meeting Time" ng-model="disembarkationGroup.disembarkationStartDateTime"  class="form-control"></td> <td>
+                                                    <input  placeholder="Enter UIIDS" ng-model="disembarkationGroup.guestUIID" ng-list class="form-control">
+                                                    </td>
+                                                    <td><button type="submit" ng-click="createGroup(disembarkationGroup)" class="btn btn-primary">Create Group</td>
+                                                </form>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table width="100%" ng-show="groupDetailesData" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>Tag Color</th>
+                                                <th>Groups</th>
+                                                <th>Meeting Time</th>
+                                                <th>Meeting Location</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd gradeX" ng-repeat="d in data">
+                                                <td>{{d.tagColor}} </td>
+                                                <td>{{d.disembarkationGroupName}}</td>
+                                                <td>{{d.disembarkationStartDateTime}}</td>
+                                                <td>{{d.meetingLocation}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../lib/sb-admin-2.js"></script>
+
+    <script src="../javaScript/bootstrap.min.js")"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="../lib/angular.min.js")"></script>
+    <script src="../lib/angular-route.min.js")"></script>
+    <script src="../lib/angular-ui-router.min.js")"></script>
+
+    <script src="../javaScript/app.js")"></script>
+    <script src="../javaScript/controllers.js")"></script>
+    <script src="../javaScript/services.js")"></script>
+    <script src="../javaScript/factories.js")"></script>
+    <script src="../javaScript/config.js")"></script>
+
+</body>
+
+</html>

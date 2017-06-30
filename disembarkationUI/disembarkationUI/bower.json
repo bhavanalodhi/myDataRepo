@@ -1,0 +1,23 @@
+{
+  "name": "carnival",
+  "version": "1.1.1",
+  "description": "Carnival: XiLodging UI",
+  
+  "main": "index.html",
+  "license": "Private",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0",
+    "jquery": "~2.1.3",
+    "angular": "~1.3.4",
+    "angular-animate": "~1.3.5",
+    "angular-route": "~1.3.5"
+  }
+}
